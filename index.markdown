@@ -6,7 +6,7 @@ layout: default
 title: Multiple Parson's Problems on One Page
 ---
 # My Parson's problems:
-add the new car to the thirs spot on the list and print them.
+## add the new car to the third spot on the list and print the cars.
 
 <div id="parson2-sortableTrash" class="sortable-code"></div> 
 <div id="parson2-sortable" class="sortable-code"></div> 
@@ -53,7 +53,7 @@ add the new car to the thirs spot on the list and print them.
 })(); 
 </script>
 
-##put your bently in, then take the bugatti out.
+## put your bently in, then take the bugatti out.
 
 <div id="parson3-sortableTrash" class="sortable-code"></div> 
 <div id="parson3-sortable" class="sortable-code"></div> 
@@ -100,8 +100,53 @@ add the new car to the thirs spot on the list and print them.
 })(); 
 </script>
 
-
-
+## park the bugatti between the McLaren and the Ferari, then take out the last car.
+<div id="parson4-sortableTrash" class="sortable-code"></div> 
+<div id="parson4-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="parson4-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="parson4-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "myCar = &#039;Bugatti&#039;\n" +
+    "cars = [&#039;McLaren&#039;, &#039;Ferari&#039;, &#039;Rolls-Royce&#039;, &#039;Bentley&#039;]\n" +
+    "cars.insert($$toggle::0::1::2::3::4::-3$$, myCar)\n" +
+    "myCar = cars.pop($$toggle::1::2::3:: $$)";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "parson4-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.VariableCheckGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "vartests": [
+        {
+            "message": "Make sure you have parked your car right AND taken the right car. What does an empty pop() do?",
+            "initcode": "",
+            "code": "parkedCar = str(cars[1])",
+            "variables": {
+                "myCar": "Bentley",
+                "parkedCar": "Bugatti"
+            }
+        }
+    ]
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#parson4-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#parson4-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
 
 # Test problems
 
