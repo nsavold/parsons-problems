@@ -6,8 +6,61 @@ layout: default
 title: Multiple Parson's Problems on One Page
 ---
 # My Parson's problems:
+add the new car to the thirs spot on the list and print them.
 
-## add two numbers
+<div id="parson2-sortableTrash" class="sortable-code"></div> 
+<div id="parson2-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="parson2-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="parson2-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "cars = [&#039;McLaren&#039;, &#039;Ferari&#039;, &#039;Bugatti&#039;]\n" +
+    "cars.insert($$toggle::0::1::2::3$$, &#039;Rolls-Royce&#039;)\n" +
+    "print(cars)";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "parson2-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.VariableCheckGrader,
+    "exec_limit": 2500,
+    "can_indent": false,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "vartests": [
+        {
+            "message": "print(cars) should return ['McLaren', 'Ferari', 'Rolls-Royce', 'Bugatti']",
+            "initcode": "printed = ''",
+            "code": "printed = str(cars)",
+            "variables": {
+                "printed": "['McLaren', 'Ferari', 'Rolls-Royce', 'Bugatti']"
+            }
+        }
+    ]
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#parson2-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#parson2-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
+
+
+
+
+
+
+# Test problem
+
+## add two numbers 
 Change the variables to make the final line print true. Yes, that's a hint to the final line
 
 <div id="parson1-sortableTrash" class="sortable-code"></div> 
