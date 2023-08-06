@@ -7,13 +7,65 @@ title: Multiple Parson's Problems on One Page
 ---
 # My Parson's problems:
 
-## Make the number 5
-<div id="Parson1-sortableTrash" class="sortable-code"></div> 
-<div id="Parson1-sortable" class="sortable-code"></div> 
+## add two numbers
+Change the variables to make the final line print true. Yes, that's a hint to the final line
+
+<div id="parson1-sortableTrash" class="sortable-code"></div> 
+<div id="parson1-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="Parson1-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="Parson1-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="parson1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="parson1-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "x = $$toggle::5::6::7$$\n" +
+    "y = $$toggle::8::9::10$$\n" +
+    "z = x + y\n" +
+    "print(z == 15) #prints True if z has been set to 15.";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "parson1-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.VariableCheckGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "vartests": [
+        {
+            "message": "print(z == 15) printed \"F alse\"",
+            "initcode": "x , y = 0 , 0",
+            "code": "",
+            "variables": {
+                "z": 15
+            }
+        }
+    ]
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#parson1-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#parson1-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
+
+
+## Make the number 5
+Rearrange the code to make the number 5 with a turtle.
+
+<div id="ParsonTurtle-sortableTrash" class="sortable-code"></div> 
+<div id="ParsonTurtle-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="ParsonTurtle-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="ParsonTurtle-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
@@ -27,7 +79,7 @@ title: Multiple Parson's Problems on One Page
     "    modelTurtle.rt(90)\n" +
     "modelTurtle.fd(70)";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "Parson1-sortable",
+    "sortableId": "ParsonTurtle-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.TurtleGrader,
     "exec_limit": 2500,
@@ -35,23 +87,23 @@ title: Multiple Parson's Problems on One Page
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
+    "trashId": "ParsonTurtle-sortableTrash",
     "executable_code": "",
     "programmingLang": "pseudo",
     "turtleModelCode": "import turtle\nmodelTurtle = turtle.Turtle()\nfor i in range(2):\n    modelTurtle.fd(70)\n    modelTurtle.lt(90)\nfor i in range(2):\n    modelTurtle.fd(70)\n    modelTurtle.rt(90)\nmodelTurtle.fd(70)"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#Parson1-newInstanceLink").click(function(event){ 
+  $("#ParsonTurtle-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#Parson1-feedbackLink").click(function(event){ 
+  $("#ParsonTurtle-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
 })(); 
 </script>
-
 
 
 
