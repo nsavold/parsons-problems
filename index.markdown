@@ -5,9 +5,17 @@
 layout: default
 title: Multiple Parson's Problems on One Page
 ---
-# Parsons Practice
+#My Parson's problems:
 
-## Parsons 1 (Line Based Grader)
+
+
+
+
+
+
+# Parsons Practice examples
+
+### Parsons 1 (Line Based Grader)
 Re-arrange the blocks below so they print out "Hello World!"
 
 <div id="p1-sortableTrash" class="sortable-code"></div>
@@ -47,7 +55,7 @@ Re-arrange the blocks below so they print out "Hello World!"
 </script>
 
 
-## Parsons 2 (Variable Check Grader)
+### Parsons 2 (Variable Check Grader)
 Construct a program that swaps the values of variables <code>x</code> and <code>y</code> using the helper variable <code>tmp</code>. You can change the names of the variables (<span class="jsparson-toggle"></span>) by clicking them.
 
 <div id="p2-sortableTrash" class="sortable-code"></div>
@@ -99,7 +107,7 @@ Construct a program that swaps the values of variables <code>x</code> and <code>
 })();
 </script>
 
-## Parsons 3 (Unit Test Grader)
+### Parsons 3 (Unit Test Grader)
 Your task is to construct a function which returns the index of the largest element in the array.
 
 <div id="p3-sortableTrash" class="sortable-code"></div>
@@ -143,7 +151,7 @@ Your task is to construct a function which returns the index of the largest elem
 })();
 </script>
 
-## Parsons 4 (Language Translation Grader)
+### Parsons 4 (Language Translation Grader)
 Print out "I am a Java program" three times using a for loop.
 
 <div id="p4-sortableTrash" class="sortable-code"></div>
@@ -195,7 +203,7 @@ Print out "I am a Java program" three times using a for loop.
 </script>
 
 
-## Parsons 5 (Turtle Grader)
+### Parsons 5 (Turtle Grader)
 Construct a program by dragging&amp;dropping and reordering lines. The constructed program should draw a triangle like shown below.
 
 <div id="p5-sortableTrash" class="sortable-code"></div>
