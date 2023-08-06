@@ -119,10 +119,11 @@ title: Multiple Parson's Problems on One Page
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.VariableCheckGrader,
     "exec_limit": 2500,
-    "can_indent": true,
+    "can_indent": false,
     "x_indent": 50,
     "lang": "en",
     "show_feedback": true,
+    "trashId": "parson4-sortableTrash",
     "vartests": [
         {
             "message": "Make sure you have parked your car right AND taken the right car. What does an empty pop() do?",
