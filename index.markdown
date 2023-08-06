@@ -53,12 +53,57 @@ add the new car to the thirs spot on the list and print them.
 })(); 
 </script>
 
+##put your bently in, then take the bugatti out.
+
+<div id="parson3-sortableTrash" class="sortable-code"></div> 
+<div id="parson3-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="parson3-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="parson3-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "cars = [&#039;McLaren&#039;, &#039;Ferari&#039;, &#039;Rolls-Royce&#039;, &#039;Bugatti&#039;]\n" +
+    "cars.append(&#039;Bentley&#039;)\n" +
+    "yourCar = (cars[$$toggle::0::1::2::-5::-4::-3::-2::-1$$])";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "parson3-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.VariableCheckGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true,
+    "vartests": [
+        {
+            "message": "Remember, Lists are Indexed from 0, but to start from the end of the list,\nthe last item can be acessed at -1",
+            "initcode": "",
+            "code": "",
+            "variables": {
+                "yourCar": "Bugatti"
+            }
+        }
+    ]
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#parson3-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#parson3-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
 
 
 
 
-
-# Test problem
+# Test problems
 
 ## add two numbers 
 Change the variables to make the final line print true. Yes, that's a hint to the final line
